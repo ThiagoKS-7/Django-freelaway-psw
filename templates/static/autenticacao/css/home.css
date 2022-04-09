@@ -1,0 +1,10 @@
+.titulo {
+    text-align: center;
+}
+
+.box {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

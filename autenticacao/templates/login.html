@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'autenticacao/css/cadastro.css' %}">
+{% endblock %}
+{% block 'body' %}
+<div class="box">
+<form action="{% url 'login' %}" method="post">{% csrf_token %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{message.tags}}">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <h1 class="fonte-degrade borda_bottom_degrade">ENTRAR</h2>
+    <br>
+
+    <span class="span-descricao">Nome de usuário:</span>
+    <div style="display:flex">
+        <div style="align-self: center; justify-content: center; align-items:center">
+            <svg class="icon_cadastro" style="color: white;" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+            </svg>
+                
+        </div>
+        <input class="input_cadastro" type="text" placeholder="Nome..." name="username" required="">
+    </div>
+
+    <br>
+    <span class="span-descricao">Senha:</span>
+    <div style="display:flex">
+        <div style="align-self: center; justify-content: center; align-items:center">
+            <svg width="35px" height="35px" style="color: white;" viewBox="0 0 24 24" id="magicoon-Filled" xmlns="http://www.w3.org/2000/svg">
+                <defs><style>.cls-1{fill:#41416e;}</style></defs><title>lock</title><g id="lock-Filled"><path id="lock-Filled-2" data-name="lock-Filled" class="cls-1" d="M17,9.99V7A5,5,0,0,0,7,
+                    7V9.99A4.482,4.482,0,0,0,4.5,14v3A4.507,4.507,0,0,0,9,21.5h6A4.507,4.507,0,0,0,19.5,17V14A4.482,4.482,0,0,0,17,9.99ZM13,16a1,1,0,0,1-2,0V15a1,1,0,0,1,2,0Zm2-6.5H9V7a3,3,0,0,1,6,0Z"/>
+                </g>
+            </svg>
+        </div>
+        <input class="input_cadastro" type="text" placeholder="Senha..." name="password" required="">
+    </div>
+    <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
+
+    <br>
+
+    <div style="display: flex; justify-content:flex-end; margin-top: 1rem;">
+        <a href="{% url 'cadastro' %}" class="btn_cadastro">CADASTRAR</a>
+        <button type="submit" class="btn_cadastro">LOGIN</button>
+    </div>
+</form>
+</div>
+{% endblock %}

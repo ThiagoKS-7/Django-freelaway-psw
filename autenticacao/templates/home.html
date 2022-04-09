@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'autenticacao/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'autenticacao/css/cadastro.css' %}">
+{% endblock %}
+{% block 'body' %}
+<div class="box">
+<form>
+    <div class="box">
+        <h1 class="fonte-degrade borda_bottom_degrade titulo">HOME</h2>
+        <img width="100%" src="{% static 'autenticacao/img/synth.gif' %}" alt="synthwave gif"/>
+        <div style="display: flex; justify-content:flex-end; margin-top: 1rem;">
+            <a href="{% url 'sair' %}" class="btn_cadastro">SAIR</a>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock %}
